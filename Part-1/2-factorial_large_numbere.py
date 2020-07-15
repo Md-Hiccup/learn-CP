@@ -1,7 +1,5 @@
 """
-Find factorial of large number.
-
-
+Factorial of Large number   -   [https://www.geeksforgeeks.org/factorial-large-number/]
 
 Example:
 Input
