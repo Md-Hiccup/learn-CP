@@ -304,22 +304,36 @@ def intersect(arr1, arr2):
     return res
 
 
-def containsNearbyDuplicate(arr1, k):
+def containsNearbyDuplicate(arr, k):
     """
     Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the absolute difference between i and j is at most k.
 
     Example 1:
         Input: nums = [1,2,3,1], k = 3
-        Output: true
+        Output: true : As K = 3, add [1,2,3] in hashmap, if next value 1 is exist in hashmap, check index-hashmap[index] <= k: True
     Example 2:
         Input: nums = [1,0,1,1], k = 1
-        Output: true
+        Output: true : As k = 2, add [1,0] in hashmap, next 1 is exist in hashmap, check index - hashmap[index] <= k: True
     Example 3:
         Input: nums = [1,2,3,1,2,3], k = 2
         Output: false
+        Explaination:
+            As k = 2, add [1,2] in hashmap, next 3 not exist, add 3 in hashmap, if exist check (index - hashmap[index] <= k)
+            next 1 exist in hashmap check (3-0 < 2): No
+            next 2 exist in hashmap check (4-1 < 2): No
+            next 3 exist in hashmap check (5-2 < 2): No
     """
 
+    print(f"Array: {arr}\nK: {k}")
+    hashmap = {}
+    for i in range(len(arr)):
+        if arr[i] in hashmap:
+            pre = hashmap[arr[i]]
+            if i-pre <= k:
+                return True
+        hashmap[arr[i]] = i
 
+    return False
 
 
 
@@ -327,36 +341,36 @@ if __name__ == "__main__":
 
     # #### 1. Simple Intro to Hash Map
     # # Your MyHashMap object will be instantiated and called as such:
-    # hashMap = MyHashMap()
-    # hashMap.main()
+    hashMap = MyHashMap()
+    hashMap.main()
 
-    # print('*'*40)
+    print('*'*40)
 
     # #### 2. Hash Map Example Code
-    # hashmap_1()
+    hashmap_1()
 
-    # print('*'*40)
+    print('*'*40)
 
     # #### 3. Two Sum
     # # print("Enter value in Array 1 with space separated")
     # # arr1 = list(map(int, input().strip().split()))
 
-    # arr = [2, 7, 7, 11, 15]
-    # target = 9
-    # two_sum = twoSum(arr, target)
-    # print("Two Sum index value:", two_sum)
+    arr = [2, 7, 7, 11, 15]
+    target = 9
+    two_sum = twoSum(arr, target)
+    print("Two Sum index value:", two_sum)
 
-    # print('*'*40)
+    print('*'*40)
 
     # #### 4. Isomorphic Strings
     # # print("Enter two strings with space separated")
     # # s, t = list(map(int, input().strip().split()))
 
-    # s, t = ['acab', 'xcxy']
-    # is_isomorphic = isIsomorphic(s, t)
-    # print("Is Isomorphic Strings:", is_isomorphic)
+    s, t = ['acab', 'xcxy']
+    is_isomorphic = isIsomorphic(s, t)
+    print("Is Isomorphic Strings:", is_isomorphic)
 
-    # print('*'*40)
+    print('*'*40)
 
     # ### 5. Minimun Index Sum of Two Lists (Favourite Restaurant)
     # # print("Enter list of restaurant in Array 1 with space separated")
@@ -364,22 +378,22 @@ if __name__ == "__main__":
     # # print("Enter list of restaurant in Array 2 with space separated")
     # # arr2 = list(map(int, input().strip().split()))
 
-    # arr1 = ["Shogun", "Tapioca Express", "Burger King", "KFC"]
-    # arr2 = ["KFC", "Shogun", "Burger King"]
-    # rest = findRestaurant(arr1, arr2)
-    # print('Favourite Restaurant:', rest)
+    arr1 = ["Shogun", "Tapioca Express", "Burger King", "KFC"]
+    arr2 = ["KFC", "Shogun", "Burger King"]
+    rest = findRestaurant(arr1, arr2)
+    print('Favourite Restaurant:', rest)
 
-    # print('*'*40)
+    print('*'*40)
 
     # ### 5. First Unique Character in a String
     # # print("Enter a string")
     # # s = list(map(int, input().strip().split()))
 
-    # s = 'loveleetcode'
-    # res = firstUniqChar(s)
-    # print('First Unique Characer is at Index:', res)
+    s = 'loveleetcode'
+    res = firstUniqChar(s)
+    print('First Unique Characer is at Index:', res)
 
-    # print('*'*40)
+    print('*'*40)
 
     # ### 5. Intersect of Two Arrays - II
     # # print("Enter list of restaurant in Array 1 with space separated")
@@ -387,10 +401,10 @@ if __name__ == "__main__":
     # # print("Enter list of restaurant in Array 2 with space separated")
     # # arr2 = list(map(int, input().strip().split()))
 
-    # arr1 = [4,9,5]
-    # arr2 = [9,4,9,8,4]
-    # res = intersect(arr1, arr2)
-    # print('Intersection of two array:', res)
+    arr1 = [4,9,5]
+    arr2 = [9,4,9,8,4]
+    res = intersect(arr1, arr2)
+    print('Intersection of two array:', res)
 
     print('*'*40)
 
@@ -400,7 +414,7 @@ if __name__ == "__main__":
     # # print("Enter the difference value")
     # # k = int(input())
 
-    arr1 = [1, 2, 3, 1]
+    arr = [1, 2, 3, 1]
     k = 3
-    contains_duplicate = containsNearbyDuplicate
-    print("Containse near by duplicate:", contains_duplicate)
+    contains_duplicate = containsNearbyDuplicate(arr, k)
+    print("Contains near by duplicate:", contains_duplicate)
