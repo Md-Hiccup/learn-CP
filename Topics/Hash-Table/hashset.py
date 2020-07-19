@@ -28,7 +28,7 @@ class MyHashSet:
         print('1 is in hashset:', get)
         get = self.contains(3)     # returns false (not found)
         print('3 is in hashset:', get)
-        self.add(2)          
+        self.add(2)
         get = self.contains(2)     # returns true
         print('2 is in hashset:', get)
         print('Remove 2 from hashset')
@@ -39,7 +39,7 @@ class MyHashSet:
 
 def hashset_1():
     # 1. initialize the hash set
-    hashset = set() 
+    hashset = set()
     # 2. add a new key
     hashset.add(3)
     hashset.add(2)
@@ -52,14 +52,14 @@ def hashset_1():
     if (2 not in hashset):
         print("Key 2 is not in the hash set.")
     # 5. get the size of the hash set
-    print("Size of hashset is:", len(hashset)) 
+    print("Size of hashset is:", len(hashset))
     # 6. iterate the hash set
     for x in hashset:
         print(x, end=" ")
     print("are in the hash set.")
     # 7. clear the hash set
     print("Clear the hash set")
-    hashset.clear()                         
+    hashset.clear()
     print("Size of hashset:", len(hashset))
 
 
@@ -108,7 +108,7 @@ def singleNumber(arr):
     # hashtable = defaultdict(int)
     # for i in arr:
     #     hashtable[i] += 1
-    
+
     # for i in hashtable:
     #     if hashtable[i] == 1:
     #         return i
@@ -154,10 +154,10 @@ def isHappy(n):
 
     Return True if n is a happy number, and False if not.
 
-    Example: 
+    Example:
         Input: 19
         Output: true
-        Explanation: 
+        Explanation:
             1^2 + 9^2 = 82
             8^2 + 2^2 = 68
             6^2 + 8^2 = 100
@@ -165,28 +165,28 @@ def isHappy(n):
     """
     print("Number: ", n)
     hashset = set()
-    
+
     while( n!= 1):
         temp = n
         tot = 0
-        
+
         while(temp != 0):
             rem = temp % 10
             tot += rem ** 2
             temp = temp // 10
-        
+
         if tot in hashset:
             return False
-        
+
         hashset.add(tot)
         n = tot
-    
+
     return True
 
 
 
 if __name__ == "__main__":
-    
+
     # #### 1. Simple Intro to Hash Set
     # # Your MyHashSet object will be instantiated and called as such:
     hashSet = MyHashSet()

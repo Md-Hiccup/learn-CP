@@ -10,13 +10,13 @@ class MyHashMap:
         """
         value will always be non-negative.
         """
-        self.hash_bucket[key] = value           
+        self.hash_bucket[key] = value
 
     def remove(self, key: int) -> None:
         """
         Removes the mapping of the specified value key if this map contains a mapping for the key
         """
-        del self.hash_bucket[key] 
+        del self.hash_bucket[key]
 
     def get(self, key: int) -> int:
         """
@@ -27,15 +27,15 @@ class MyHashMap:
         return -1
 
     def main(self):
-        self.put(1, 1)   
-        self.put(2, 2)     
+        self.put(1, 1)
+        self.put(2, 2)
         print('Values in hash map:', self.hash_bucket)
         get = self.get(1)          # returns 1
         print('Is 1 in hash map:', get)
         get = self.get(3)          # returns -1 (not found)
         print('Is 3 in hash map:', get)
         self.put(2, 1)         # update the existing value
-        get = self.get(2)          # returns 1 
+        get = self.get(2)          # returns 1
         print('Is 2 in hash map:', get)
         print('Remove 2 from hash map')
         self.remove(2)       # remove the mapping for 2
@@ -98,7 +98,7 @@ def twoSum(arr, t):
     # hashmap = {}
     # for i in range(len(arr)):
     #     hashmap[arr[i]] = i
-    
+
     # for i in range(len(arr)):
     #     comp = t-arr[i]
     #     # # Check Key exist in hashmap
@@ -126,10 +126,10 @@ def isIsomorphic(s, t):
     Example 1:
         Input: s = "egg", t = "add"
         Output: true
-        
+
         Input: s = "paper", t = "title"
         Output: true
-        
+
         Input: s = "foo", t = "bar"
         Output: false
     """
@@ -153,7 +153,7 @@ def isIsomorphic(s, t):
         hashset.add(c2)
         # print(hashmap, hashset)
     return True
-        
+
 
 def findRestaurant(arr1, arr2):
     """
@@ -185,7 +185,7 @@ def findRestaurant(arr1, arr2):
     # hashmap = {}
     # for i in range(len(arr1)):
     #     hashmap[arr1[i]] = i
-    
+
     # hashmap2 = {}
     # for j in range(len(arr2)):
     #     if arr2[j] in hashmap:
@@ -202,7 +202,7 @@ def findRestaurant(arr1, arr2):
     hashmap = {}
     for i in range(len(arr1)):
         hashmap[arr1[i]] = i
-    
+
     res = []
     min_sum = 100000
     sum = -1
@@ -239,7 +239,7 @@ def firstUniqChar(s):
             hashmap[s[i]] += 1
         else:
             hashmap[s[i]] = 1
-    
+
     for ind, ch in enumerate(s):
         if hashmap[ch] == 1:
             return ind
@@ -268,7 +268,7 @@ def intersect(arr1, arr2):
             hashmap[i] += 1
         else:
             hashmap[i] = 1
-    
+
     res = []
     for i in arr2:
         if i in hashmap and hashmap[i] > 0:
@@ -276,7 +276,7 @@ def intersect(arr1, arr2):
             hashmap[i] -= 1
 
     return res
-    
+
 
 if __name__ == "__main__":
 
@@ -310,7 +310,7 @@ if __name__ == "__main__":
     # s, t = ['acab', 'xcxy']
     # is_isomorphic = isIsomorphic(s, t)
     # print("Is Isomorphic Strings:", is_isomorphic)
-    
+
     # print('*'*40)
 
     # ### 5. Minimun Index Sum of Two Lists (Favourite Restaurant)
