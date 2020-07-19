@@ -8,7 +8,6 @@ class MyHashSet:
 
     def add(self, key: int) -> None:
         self.hash_bucket.add(key)
-            
 
     def remove(self, key: int) -> None:
         self.hash_bucket.discard(key)
@@ -20,7 +19,7 @@ class MyHashSet:
         if key in self.hash_bucket:
             return True
         return False
-        
+
     def main(self) -> None:
         self.add(1)
         self.add(2)
