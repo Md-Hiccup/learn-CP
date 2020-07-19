@@ -246,7 +246,6 @@ def firstUniqChar(s):
     return -1
 
 
-
 def intersect(arr1, arr2):
     """
     Given two arrays, write a function to compute their intersection.
@@ -257,8 +256,19 @@ def intersect(arr1, arr2):
     Example 2:
         Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
         Output: [4,9]
+
+    Follow up:
+
+    1. What if the given array is already sorted? How would you optimize your algorithm?
+    2. What if nums1's size is small compared to nums2's size? Which algorithm is better?
+    3. What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
     """
     print(f'Array1: {arr1}\nArray2: {arr2}')
+
+    ### Follow up: - Using Hashmap
+    # 2. Its already we are checking below and processing code with hashmap.
+    # 3. Then need to chunks nums2 and resolve chunk with hashmap.
+
     hashmap = {}
     if len(arr2) < len(arr1):
         intersect(arr2, arr1)
@@ -275,7 +285,42 @@ def intersect(arr1, arr2):
             res.append(i)
             hashmap[i] -= 1
 
+    ### Follow up. - Using Two pointer technique
+    # 1. Previously assuming both arrays are sorted.
+    # arr1 = sorted(arr1)
+    # arr2 = sorted(arr2)
+    # res = []
+    # i = j = 0
+    # while (i < len(arr1) and j < len(arr2)):
+    #     if arr1[i] == arr2[j]:
+    #         res.append(arr1[i])
+    #         i += 1
+    #         j += 1
+    #     elif arr1[i] < arr2[j]:
+    #         i += 1
+    #     else:
+    #         j += 1
+
     return res
+
+
+def containsNearbyDuplicate(arr1, k):
+    """
+    Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the absolute difference between i and j is at most k.
+
+    Example 1:
+        Input: nums = [1,2,3,1], k = 3
+        Output: true
+    Example 2:
+        Input: nums = [1,0,1,1], k = 1
+        Output: true
+    Example 3:
+        Input: nums = [1,2,3,1,2,3], k = 2
+        Output: false
+    """
+
+
+
 
 
 if __name__ == "__main__":
@@ -334,7 +379,7 @@ if __name__ == "__main__":
     # res = firstUniqChar(s)
     # print('First Unique Characer is at Index:', res)
 
-    print('*'*40)
+    # print('*'*40)
 
     # ### 5. Intersect of Two Arrays - II
     # # print("Enter list of restaurant in Array 1 with space separated")
@@ -342,8 +387,20 @@ if __name__ == "__main__":
     # # print("Enter list of restaurant in Array 2 with space separated")
     # # arr2 = list(map(int, input().strip().split()))
 
-    arr1 = [4,9,5]
-    arr2 = [9,4,9,8,4]
-    res = intersect(arr1, arr2)
-    print('Intersection of two array:', res)
+    # arr1 = [4,9,5]
+    # arr2 = [9,4,9,8,4]
+    # res = intersect(arr1, arr2)
+    # print('Intersection of two array:', res)
 
+    print('*'*40)
+
+    # ### 6. Contains Duplicate - II
+    # # print("Enter numbers in Array with space separated")
+    # # arr1 = list(map(int, input().strip().split()))
+    # # print("Enter the difference value")
+    # # k = int(input())
+
+    arr1 = [1, 2, 3, 1]
+    k = 3
+    contains_duplicate = containsNearbyDuplicate
+    print("Containse near by duplicate:", contains_duplicate)
