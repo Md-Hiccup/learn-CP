@@ -166,7 +166,7 @@ def findDuplicateSubtrees(root):
         if node:
             uid = hashmap[node.val, lookup(node.left), lookup(node.right)]
             count[uid] += 1
-            print(hashmap, count)
+            # print(hashmap, count)
             if count[uid] == 2:
                 ans.append(node)
             return uid
@@ -184,11 +184,11 @@ if __name__ == "__main__":
     # # print("Enter the array to group anagram with space separated value")
     # # arr = list(map(int, input.strip().split())
 
-    # arr = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']
-    # group_anagram = groupAnagram(arr)
-    # print('Group Anagram: ', group_anagram)
+    arr = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']
+    group_anagram = groupAnagram(arr)
+    print('Group Anagram: ', group_anagram)
 
-    # print('*' * 40)
+    print('*' * 40)
 
     # # print("Enter sudoku value for validate")
     # # arr[i][j] = 0
@@ -196,20 +196,20 @@ if __name__ == "__main__":
     # #     for j in range(9)
     #           arr[i][j] = input().strip()
 
-    # mat = [
-    #     ["5","3",".",".","7",".",".",".","."],
-    #     ["6",".",".","1","9","5",".",".","."],
-    #     [".","9","8",".",".",".",".","6","."],
-    #     ["8",".",".",".","6",".",".",".","3"],
-    #     ["4",".",".","8",".","3",".",".","1"],
-    #     ["7",".",".",".","2",".",".",".","6"],
-    #     [".","6",".",".",".",".","2","8","."],
-    #     [".",".",".","4","1","9",".",".","5"],
-    #     [".",".",".",".","8",".",".","7","9"]
-    # ]
+    mat = [
+        ["5","3",".",".","7",".",".",".","."],
+        ["6",".",".","1","9","5",".",".","."],
+        [".","9","8",".",".",".",".","6","."],
+        ["8",".",".",".","6",".",".",".","3"],
+        ["4",".",".","8",".","3",".",".","1"],
+        ["7",".",".",".","2",".",".",".","6"],
+        [".","6",".",".",".",".","2","8","."],
+        [".",".",".","4","1","9",".",".","5"],
+        [".",".",".",".","8",".",".","7","9"]
+    ]
 
-    # valid_sudoku = validSudoku(mat)
-    # print("Is Valid Sudoku:", valid_sudoku)
+    valid_sudoku = validSudoku(mat)
+    print("Is Valid Sudoku:", valid_sudoku)
 
     print('*' * 40)
 
@@ -226,3 +226,6 @@ if __name__ == "__main__":
 
     duplicate = findDuplicateSubtrees(obj)
     print("Duplicate :", duplicate)
+    for i in duplicate:
+        i.traverse(i)
+        print()
