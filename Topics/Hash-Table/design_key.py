@@ -163,8 +163,6 @@ def findDuplicateSubtrees(root):
     ans = []
 
     def lookup(node):
-        if node == None:
-            return 'X'
         if node:
             uid = hashmap[node.val, lookup(node.left), lookup(node.right)]
             count[uid] += 1
